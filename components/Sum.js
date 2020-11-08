@@ -5,7 +5,7 @@ import React from "react";
 // from the different APIs and displays them in text format.
 class Sum extends React.Component {
   render() {
-    const { internApiResponse, eksternApiSerieResponse, eksternApiAnuitetResponse } = this.props;
+    const { internApiResponse, eksternApiSerieResponse, eksternApiAnnuitetResponse } = this.props;
     var sumEksterntLån = 0;
     var sumInterntSerieLån = 0;
     var sumInterntAnnuitetsLån = 0;
@@ -20,8 +20,8 @@ class Sum extends React.Component {
         sumInterntSerieLån += row.total;
       });
     }
-    if (eksternApiAnuitetResponse != null) {
-      eksternApiAnuitetResponse.nedbetalingsplan.innbetalinger.map((row) => {
+    if (eksternApiAnnuitetResponse != null) {
+      eksternApiAnnuitetResponse.nedbetalingsplan.innbetalinger.map((row) => {
         sumInterntAnnuitetsLån += row.total;
       });
     }
