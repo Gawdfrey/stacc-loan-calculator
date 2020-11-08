@@ -80,7 +80,6 @@ class Index extends React.Component {
         <div>
           <Form handleSubmit={this.handleSubmit} />
         </div>
-        // Button row that controls which component is displayed in the carousel.
         <div class="row justify-content-center" style={{ marginTop: "3rem" }}>
           <div
             class="btn-group"
@@ -118,10 +117,6 @@ class Index extends React.Component {
             </button>
           </div>
         </div>
-        // The carousel which contains a row which symbolises one page
-        // carousel. Consists of a table and graph from one of the APIs.
-        // The last page of the carousel contains the total cost sums of
-        // each API.
         <Carousel activeIndex={this.state.index} controls={true}>
           <CarouselItem>
             <div className="row">
