@@ -10,6 +10,7 @@ var style = {
   marginTop: "5rem",
 };
 
+// Creates footer
 const Footer = () => (
   <footer style={style}>
     <div className="container">

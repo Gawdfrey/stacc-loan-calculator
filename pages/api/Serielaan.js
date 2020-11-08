@@ -1,3 +1,7 @@
+// API which takes a JSON object and returns
+// a correct down payment plan. The plan is
+// represented by a JSON object where each
+// element is a payment.
 export default function (req, res) {
   if (req.method !== "POST") {
     return res.status(405).end();
@@ -12,6 +16,9 @@ export default function (req, res) {
     ukjentVerdi,
   } = req.body;
 
+  // The JSON object to be returned. The first
+  // element is added manually because it is the
+  // same each time.
   var h = {
     "nedbetalingsplan": {
       "innbetalinger": [
@@ -26,11 +33,16 @@ export default function (req, res) {
       ]
     },
   }
+  // Defining each variable that is to be used in the calculation
+  // of the down payment plan.
   const datoDiff = monthsDiff(datoForsteInnbetaling, utlopsDato)
   var restgjeld = laanebelop
   var rente = laanebelop * (nominellRente / 100 / datoDiff)
   var dato = new Date(datoForsteInnbetaling)
   var avdrag = laanebelop / datoDiff;
+
+  // Loops over in the range of the difference of the starting date
+  // and the ending date.
   for (var i = 0; i <= datoDiff; i++) {
     restgjeld -= avdrag;
     rente = restgjeld * (nominellRente / 100 / datoDiff);

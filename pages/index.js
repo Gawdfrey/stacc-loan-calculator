@@ -6,11 +6,18 @@ import Chart from "../components/Chart";
 import { Carousel, CarouselItem } from "react-bootstrap";
 import Sum from "../components/Sum";
 
+// The URL of the external API used
 const ekstern_api_url =
   "https://visningsrom.stacc.com/dd_server_laaneberegning/rest/laaneberegning/v1/nedbetalingsplan";
 
-const intern_api_url_serie = "http://localhost:3000/api/Serielaan";
-const intern_api_url_annuitet = "http://localhost:3000/api/Annuitetslaan";
+
+// **** CHANGE THE URLS BENEATH IF RUNNING ON LOCAL ENVIRONMENT ****
+const intern_api_url_serie = "https://stacc-loan-calculator.vercel.app/api/Serielaan";
+const intern_api_url_annuitet = "https://stacc-loan-calculator.vercel.app/api/Annuitetslaan";
+
+// **** CHANGE TO ****
+//const intern_api_url_serie = "http://localhost:3000/api/Serielaan";
+//const intern_api_url_annuitet = "http://localhost:3000/api/Annuitetslaan";
 
 class Index extends React.Component {
   constructor(props) {
@@ -23,9 +30,11 @@ class Index extends React.Component {
       index: 0,
     };
   }
-
+  // Changes the page shown in the carousel.
   changeIndex = (newIndex) => this.setState({ index: newIndex });
 
+  // Function that retrieves information from the form
+  // and sends fetch requests to the different APIs in use.
   handleSubmit = (laanDetaljer) => {
     this.setState({ jsonObject: laanDetaljer });
     fetch(ekstern_api_url, {
@@ -71,6 +80,7 @@ class Index extends React.Component {
         <div>
           <Form handleSubmit={this.handleSubmit} />
         </div>
+        // Button row that controls which component is displayed in the carousel.
         <div class="row justify-content-center" style={{ marginTop: "3rem" }}>
           <div
             class="btn-group"
@@ -108,6 +118,10 @@ class Index extends React.Component {
             </button>
           </div>
         </div>
+        // The carousel which contains a row which symbolises one page
+        // carousel. Consists of a table and graph from one of the APIs.
+        // The last page of the carousel contains the total cost sums of
+        // each API.
         <Carousel activeIndex={this.state.index} controls={true}>
           <CarouselItem>
             <div className="row">

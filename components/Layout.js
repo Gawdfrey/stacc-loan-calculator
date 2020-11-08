@@ -2,6 +2,9 @@ import Head from "next/head";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
+//  The layout which takes care of placing the navbar above
+// the main content and the footer beneath the main content.
+// Bootstrap styling is applied from here.
 const layout = (props) => (
   <div className="container">
     <Head>

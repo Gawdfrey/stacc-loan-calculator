@@ -9,10 +9,14 @@ import {
   Legend,
 } from "recharts";
 
+
+// Bar chart that displays mortgage payments and interests
 class Chart extends React.Component {
   render() {
     const { response } = this.props;
     const array = [];
+    // Looping over the data retrieved from the form and retrieves
+    // the payments and interests and appends it to an array
     if (response != null) {
       response.nedbetalingsplan.innbetalinger.map((row) => {
         array.push({

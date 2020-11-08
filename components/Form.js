@@ -1,6 +1,10 @@
 import React from "react";
 import Moment from "moment";
 
+
+// Form where the data used to calculate the loan is retrieved
+// Information is retrieved and stored in states and then sent
+// to the parent component if a value changes
 class Form extends React.Component {
   constructor(props) {
     super(props);
@@ -11,7 +15,9 @@ class Form extends React.Component {
       antallAar: 5,
     };
   }
-
+  // The function responsible of sending a JSON object to
+  // the parent component if a value changes. The JSON object
+  // is of the same form required by the APIs.
   myChangeHandler = (event) => {
     let nam = event.target.name;
     let val = event.target.value;

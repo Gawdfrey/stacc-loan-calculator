@@ -1,11 +1,15 @@
 import React from "react";
 
+
+// Calculates the sum of total costs (Payment, interest and fees)
+// from the different APIs and displays them in text format.
 class Sum extends React.Component {
   render() {
     const { internApiResponse, eksternApiSerieResponse, eksternApiAnuitetResponse } = this.props;
     var sumEksterntLån = 0;
     var sumInterntSerieLån = 0;
     var sumInterntAnnuitetsLån = 0;
+    // 3 different loops that retrieves and adds to the different sums
     if (internApiResponse != null) {
       internApiResponse.nedbetalingsplan.innbetalinger.map((row) => {
         sumEksterntLån += row.total;

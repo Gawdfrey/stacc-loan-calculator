@@ -1,5 +1,7 @@
 import React from 'react';
 
+
+// Renders the logo used from SVG.
 const Logo = () => {
   return (
 <svg xmlns="http://www.w3.org/2000/svg" width="200px" viewBox="0 0 50.1 21.68">

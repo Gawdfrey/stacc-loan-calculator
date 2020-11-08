@@ -1,11 +1,15 @@
 import React from "react";
 import { MDBDataTable } from "mdbreact";
 
+// Retrieves information from the parent component and
+// displays it in a pagianted table format.
 class Table extends React.Component {
   render() {
     const { response } = this.props;
     const array = [];
     
+    // Loops over and retrieves and formats the necessary information.
+    // Appends it to an array.
     if (response != null) {
       response.nedbetalingsplan.innbetalinger.map((row) => {
         array.push({
@@ -19,6 +23,7 @@ class Table extends React.Component {
         return array;
       });
     }
+    // The header of the table is defined here.
     const data = {
       columns: [
         {
@@ -58,14 +63,16 @@ class Table extends React.Component {
           width: 100,
         },
       ],
+      // The data of the table is retrieved from the array
+      // defined in the loop above.
       rows: array,
     };
 
     return (
       <div>
         <MDBDataTable
-        entries={12}
-          entriesOptions={[12]}
+        entries={13}
+          entriesOptions={[13]}
           entriesLabel=""
           paginationLabel={["Tilbake", "Neste"]}
           searching={false}
